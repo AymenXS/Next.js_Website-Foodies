@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './page.module.css';
+import MealsGrid from '@/components/meals/meals-grid';
 
 const MealsPage = () => {
   return (
@@ -14,7 +15,9 @@ const MealsPage = () => {
           <Link href="/meals/share">Share Your Favorite Recipe</Link>
         </p>
       </header>
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <MealsGrid meals={[]} />
+      </main>
     </>
   );
 };
