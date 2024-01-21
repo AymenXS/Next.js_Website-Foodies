@@ -1,4 +1,4 @@
-const page = () => {
+const ShareMeal = () => {
   return <h1>Meals, Share</h1>;
 };
-export default page;
+export default ShareMeal;
