@@ -28,8 +28,7 @@ const dummyMeals = [
     title: 'Spicy Curry',
     slug: 'spicy-curry',
     image: '/images/curry.jpg',
-    summary:
-      'A rich and spicy curry, infused with exotic spices and creamy coconut milk.',
+    summary: 'A rich and spicy curry, infused with exotic spices and creamy coconut milk.',
     instructions: `
       1. Chop vegetables:
          Cut your choice of vegetables into bite-sized pieces.
@@ -53,8 +52,7 @@ const dummyMeals = [
     title: 'Homemade Dumplings',
     slug: 'homemade-dumplings',
     image: '/images/dumplings.jpg',
-    summary:
-      'Tender dumplings filled with savory meat and vegetables, steamed to perfection.',
+    summary: 'Tender dumplings filled with savory meat and vegetables, steamed to perfection.',
     instructions: `
       1. Prepare the filling:
          Mix minced meat, shredded vegetables, and spices.
@@ -75,8 +73,7 @@ const dummyMeals = [
     title: 'Classic Mac n Cheese',
     slug: 'classic-mac-n-cheese',
     image: '/images/macncheese.jpg',
-    summary:
-      "Creamy and cheesy macaroni, a comforting classic that's always a crowd-pleaser.",
+    summary: "Creamy and cheesy macaroni, a comforting classic that's always a crowd-pleaser.",
     instructions: `
       1. Cook the macaroni:
          Boil macaroni according to package instructions until al dente.
@@ -100,8 +97,7 @@ const dummyMeals = [
     title: 'Authentic Pizza',
     slug: 'authentic-pizza',
     image: '/images/pizza.jpg',
-    summary:
-      'Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.',
+    summary: 'Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.',
     instructions: `
       1. Prepare the dough:
          Knead pizza dough and let it rise until doubled in size.
@@ -122,8 +118,7 @@ const dummyMeals = [
     title: 'Wiener Schnitzel',
     slug: 'wiener-schnitzel',
     image: '/images/schnitzel.jpg',
-    summary:
-      'Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.',
+    summary: 'Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.',
     instructions: `
       1. Prepare the veal:
          Pound veal cutlets to an even thickness.
@@ -164,7 +159,8 @@ const dummyMeals = [
   },
 ];
 
-db.prepare(`
+db.prepare(
+  `
    CREATE TABLE IF NOT EXISTS meals (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
        slug TEXT NOT NULL UNIQUE,
@@ -175,7 +171,8 @@ db.prepare(`
        creator TEXT NOT NULL,
        creator_email TEXT NOT NULL
     )
-`).run();
+`
+).run();
 
 async function initData() {
   const stmt = db.prepare(`
