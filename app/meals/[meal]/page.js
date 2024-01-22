@@ -3,7 +3,7 @@ import styles from './page.module.css';
 import { getMeal } from '@/library/meals';
 import { notFound } from 'next/navigation';
 
-export const generateMetadata = async ({ params }) => {
+export async function generateMetadata({ params }) {
   const meal = getMeal(params.meal);
 
   if (!meal) {
@@ -14,7 +14,7 @@ export const generateMetadata = async ({ params }) => {
     title: meal.title,
     description: meal.summary,
   };
-};
+}
 
 const MealDetails = ({ params }) => {
   const meal = getMeal(params.meal);
