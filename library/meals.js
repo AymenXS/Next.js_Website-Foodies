@@ -10,3 +10,7 @@ export const getMeals = async () => {
 export const getMeal = (identifier) => {
   return db.prepare('SELECT * FROM meals WHERE slug = ?').get(identifier);
 };
+
+export const saveMeal = (meal) => {
+  
+} 
