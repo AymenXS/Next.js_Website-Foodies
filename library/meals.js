@@ -6,6 +6,10 @@ import { S3 } from '@aws-sdk/client-s3';
 
 const s3 = new S3({
   region: 'us-east-1',
+  credentials: {
+    accessKeyId: process.env.CUSTOM_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.CUSTOM_AWS_SECRET_ACCESS_KEY,
+  },
 });
 
 const db = sql('meals.db');
