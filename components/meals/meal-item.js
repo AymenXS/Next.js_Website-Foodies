@@ -8,7 +8,11 @@ const MealItem = ({ title, slug, image, summary, creator }) => {
     <article className={styles.meal}>
       <header>
         <div className={styles.image}>
-          <Image src={image} alt={title} fill />
+          <Image
+            src={`https://nextjs-foodies-demo.s3.eu-west-3.amazonaws.com/${image}`}
+            alt={title}
+            fill
+          />
         </div>
         <div className={styles.headerText}>
           <h2>{title}</h2>

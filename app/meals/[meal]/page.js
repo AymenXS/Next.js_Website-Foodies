@@ -3,6 +3,19 @@ import styles from './page.module.css';
 import { getMeal } from '@/library/meals';
 import { notFound } from 'next/navigation';
 
+export const generateMetadata = async ({ params }) => {
+  const meal = getMeal(params.meal);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+};
+
 const MealDetails = ({ params }) => {
   const meal = getMeal(params.meal);
 
@@ -16,7 +29,11 @@ const MealDetails = ({ params }) => {
     <>
       <header className={styles.header}>
         <div className={styles.image}>
-          <Image src={meal.image} alt={meal.title} fill></Image>
+          <Image
+            src={`https://nextjs-foodies-demo.s3.eu-west-3.amazonaws.com/${meal.image}`}
+            alt={meal.title}
+            fill
+          ></Image>
         </div>
         <div className={styles.headerText}>
           <h1>{meal.title}</h1>
