@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import styles from './meal-item.module.css';
 
-const MealItem = ({ title, identifier, image, summary, creator }) => {
+const MealItem = ({ title, slug, image, summary, creator }) => {
   return (
     <article className={styles.meal}>
       <header>
@@ -18,7 +18,7 @@ const MealItem = ({ title, identifier, image, summary, creator }) => {
       <div className={styles.content}>
         <p className={styles.summary}>{summary}</p>
         <div className={styles.actions}>
-          <Link href={`/meals/${identifier}`}>View Details</Link>
+          <Link href={`/meals/${slug}`}>View Details</Link>
         </div>
       </div>
     </article>
