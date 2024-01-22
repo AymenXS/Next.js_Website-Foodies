@@ -47,22 +47,21 @@ export const saveMealLocal = async (meal) => {
 export const saveMeal = async (meal) => {
   meal.slug = slugify(meal.title, { lower: true });
   meal.instructions = xss(meal.instructions);
- 
+
   const extension = meal.image.name.split('.').pop();
   const fileName = `${meal.slug}.${extension}`;
- 
+
   const bufferedImage = await meal.image.arrayBuffer();
- 
+
   s3.putObject({
-    Bucket: 'maxschwarzmueller-nextjs-demo-users-image',
+    Bucket: 'nextjs-foodies-demo.s3.eu-west-3.amazonaws.com',
     Key: fileName,
     Body: Buffer.from(bufferedImage),
     ContentType: meal.image.type,
   });
- 
- 
+
   meal.image = fileName;
- 
+
   db.prepare(
     `
     INSERT INTO meals
