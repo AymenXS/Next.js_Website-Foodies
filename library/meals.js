@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 
 import sql from 'better-sqlite3';
+import xss from 'xss';
 import slugify from 'slugify';
 
 const db = sql('meals.db');
@@ -33,12 +34,9 @@ export const saveMeal = async (meal) => {
   meal.image = `/images/${fileName}`;
 
   db.prepare(
-    `
-
-  INSERT INTO meals
+    `INSERT INTO meals
   (title, summary, instructions, creator, creator_email, image, slug)
   VALUES (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)
-
   `
   ).run(meal);
 };

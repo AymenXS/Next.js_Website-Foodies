@@ -1,5 +1,6 @@
 'use server';
 
+import { redirect } from 'next/navigation';
 import { saveMeal } from './meals';
 
 export const shareMeal = async (formData) => {
